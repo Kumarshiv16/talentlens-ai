@@ -32,3 +32,4 @@ uploads/*.pdf
 uploads/*.docx
 uploads/*.doc
 database/*.db-journal
+*.zip
