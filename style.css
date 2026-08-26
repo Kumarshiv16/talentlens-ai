@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg-dark: #090d16;
+    --card-bg: rgba(18, 26, 43, 0.75);
+    --card-border: rgba(56, 89, 138, 0.25);
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-emerald: #10b981;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+}
+
+html, body, [class*="css"], [class*="st-"] {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* Background gradient */
+.stApp {
+    background: radial-gradient(circle at 10% 10%, #111e33 0%, #090e18 45%, #05080f 100%);
+    color: var(--text-main);
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background: #0b121e !important;
+    border-right: 1px solid rgba(51, 65, 85, 0.4) !important;
+}
+
+[data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
+    color: #f8fafc;
+}
+
+/* Hero Header */
+.hero {
+    padding: 2.2rem 2.5rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(13, 148, 136, 0.75) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 2.3rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.03em;
+}
+
+.hero p {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 780px;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    min-height: 105px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96, 165, 250, 0.45);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.metric-card .n {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, #60a5fa, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+}
+
+.metric-card .l {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Custom Skill Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.75rem;
+    margin: 0.2rem 0.25rem 0.2rem 0;
+    border-radius: 9999px;
+    background: rgba(30, 58, 138, 0.35);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    color: #93c5fd;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+}
+
+.badge:hover {
+    background: rgba(30, 58, 138, 0.6);
+    border-color: #60a5fa;
+    color: #ffffff;
+}
+
+.badge-matched {
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+
+.badge-missing {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+}
+
+/* Status Badges */
+.status {
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-block;
+    letter-spacing: 0.02em;
+}
+
+.excellent {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    color: #34d399;
+}
+
+.shortlist {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    color: #60a5fa;
+}
+
+.maybe {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+}
+
+.reject {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    color: #f87171;
+}
+
+/* Primary Action Buttons */
+.stButton>button {
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.55rem 1.25rem;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: all 0.2s ease;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    filter: brightness(1.08);
+}
+
+/* Secondary Download Buttons */
+.stDownloadButton>button {
+    border-radius: 10px;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    background: rgba(15, 23, 42, 0.8);
+    color: #93c5fd;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.stDownloadButton>button:hover {
+    background: rgba(30, 58, 138, 0.4);
+    border-color: #60a5fa;
+    color: #ffffff;
+}
+
+/* Info Banner Cards */
+.info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h4 {
+    margin: 0 0 0.4rem 0;
+    color: #f8fafc;
+    font-size: 1.05rem;
+}
+
+.info-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: #64748b;
+    padding: 3rem 0 1rem;
+    font-size: 0.86rem;
+    border-top: 1px solid rgba(51, 65, 85, 0.3);
+    margin-top: 3rem;
+}
+

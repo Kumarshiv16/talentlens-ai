@@ -1,0 +1,34 @@
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Streamlit Local Cache
+.streamlit/secrets.toml
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local Uploads & Test Databases
+uploads/*.pdf
+uploads/*.docx
+uploads/*.doc
+database/*.db-journal
