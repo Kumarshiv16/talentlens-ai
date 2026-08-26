@@ -95,34 +95,69 @@ pip install -r requirements.txt
 `ash
 streamlit run app.py
 `
+```
 Open **[http://localhost:8501](http://localhost:8501)** in your web browser.
 
 ---
 
 ## ☁️ Cloud Deployment
 
-### Deploy to Streamlit Community Cloud (100% Free)
-1. Fork or push this repository to GitHub.
-2. Visit **[share.streamlit.io](https://share.streamlit.io)** and log in with GitHub.
-3. Click **New app**, select your repository, branch, and specify pp.py as the main file path.
+### 1. 🚀 Deploy on Render (Recommended for Web Service)
+Render supports background Python processes with real-time WebSockets natively.
+
+**Option A: 1-Click Blueprint (Zero Config)**
+1. Sign in to **[Render Dashboard](https://dashboard.render.com)**.
+2. Click **New +** > **Blueprint**.
+3. Connect your GitHub repository `Kumarshiv16/talentlens-ai`.
+4. Render will automatically detect [`render.yaml`](render.yaml) and configure the build and start commands.
+5. Click **Apply** to deploy!
+
+**Option B: Manual Web Service**
+1. Click **New +** > **Web Service** on Render.
+2. Connect your repository.
+3. Configure settings:
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
+   - **Start Command**: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false --server.enableXsrfProtection false`
+4. Click **Deploy Web Service**.
+
+---
+
+### 2. ▲ Deploy on Vercel
+Vercel is pre-configured with [`vercel.json`](vercel.json) and a dedicated serverless entrypoint ([`api/index.py`](api/index.py)):
+1. Sign in to **[Vercel Dashboard](https://vercel.com)**.
+2. Click **Add New...** > **Project** and import `Kumarshiv16/talentlens-ai`.
+3. Keep default settings (Framework Preset: *Other*) and click **Deploy**.
+4. Vercel will launch your live Cloud Gateway and Serverless API (`/api/health`).
+
+---
+
+### 3. 🎈 Deploy on Streamlit Community Cloud (100% Free)
+1. Visit **[share.streamlit.io](https://share.streamlit.io)** and log in with GitHub.
+2. Click **New app**, select `Kumarshiv16/talentlens-ai`, branch `main`.
+3. Set **Main file path** to `app.py`.
 4. Click **Deploy!**
 
-### Deploy with Docker
-`ash
+---
+
+### 4. 🐳 Deploy with Docker
+```bash
 docker build -t talentlens-ai .
 docker run -p 8501:8501 talentlens-ai
-`
+```
 
 ---
 
 ## 📁 Project Structure
 
-`
+```
 ├── .github/
 │   └── workflows/
 │       └── ci.yml              # Automated GitHub Actions CI pipeline
 ├── .streamlit/
 │   └── config.toml             # Streamlit server & theme configuration
+├── api/
+│   └── index.py                # Vercel serverless function & gateway handler
 ├── database/
 │   └── resumes.db              # SQLite candidate & job repository
 ├── uploads/                    # Local storage for uploaded documents
@@ -134,12 +169,14 @@ docker run -p 8501:8501 talentlens-ai
 ├── utils.py                    # PDF dossier generator & sample data seeder
 ├── style.css                   # Modern dark glassmorphic styling
 ├── requirements.txt            # Python dependencies
-├── Dockerfile                  # Container definition
-├── Procfile                    # Cloud platform entrypoint (Render/Heroku)
+├── Dockerfile                  # Container definition with dynamic $PORT support
+├── Procfile                    # Web process entrypoint (Render/Heroku)
+├── render.yaml                 # Render infrastructure-as-code blueprint
+├── vercel.json                 # Vercel serverless routing configuration
 ├── CONTRIBUTING.md             # Developer contribution guidelines
 ├── LICENSE                     # MIT License
 └── README.md                   # Repository documentation
-`
+```
 
 ---
 
