@@ -15,7 +15,7 @@ echo Adding files and committing...
 git add .
 git commit -m "feat: complete TalentLens AI enterprise platform" 2>nul
 echo Pushing to GitHub...
-git push -u origin main
+git push -u origin main --force
 if %ERRORLEVEL% equ 0 (
     echo.
     echo ========================================================
